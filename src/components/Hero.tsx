@@ -15,9 +15,9 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="max-w-3xl">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary-500/20 border border-primary-400/30 rounded-full px-4 py-1.5 mb-6">
-            <Star className="w-4 h-4 text-accent fill-accent" />
-            <span className="text-primary-200 text-sm font-medium">
+          <div className="inline-flex items-center gap-2 bg-mint-200/20 border border-mint-200/40 rounded-full px-4 py-1.5 mb-6">
+            <Star className="w-4 h-4 text-mint-200 fill-mint-200" />
+            <span className="text-mint-200 text-sm font-medium">
               Trusted by 500+ clients across the region
             </span>
           </div>
