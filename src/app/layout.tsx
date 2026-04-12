@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   description:
     "Di-Max Transportation offers professional moving, freight, and logistics services. Get a free quote or book your appointment today.",
   keywords: "transportation, moving, freight, logistics, Di-Max",
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({

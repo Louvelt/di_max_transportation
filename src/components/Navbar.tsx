@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Menu, X, Truck } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -28,17 +29,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
-            <div className="bg-primary-500 p-1.5 rounded-lg">
-              <Truck className="w-5 h-5 text-white" />
-            </div>
-            <span
-              className={`font-bold text-lg ${
-                scrolled ? "text-navy" : "text-white"
-              }`}
-            >
-              Di-Max <span className="text-primary-400">Transportation</span>
-            </span>
+          <a href="#home" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Di-Max Transportation"
+              width={140}
+              height={48}
+              className="h-10 w-auto object-contain"
+              priority
+            />
           </a>
 
           {/* Desktop links */}
