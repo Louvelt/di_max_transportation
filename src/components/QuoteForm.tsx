@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 
 const serviceOptions = [
   "Local Moving",
@@ -12,26 +12,45 @@ const serviceOptions = [
 ];
 
 export default function QuoteForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
   const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    pickup: "",
-    dropoff: "",
-    moveDate: "",
-    message: "",
+    name: "", email: "", phone: "", service: "",
+    pickup: "", dropoff: "", moveDate: "", message: "",
   });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: connect to backend / email service
-    setSubmitted(true);
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setStatus("success");
+    } catch (err: unknown) {
+      setErrorMsg(err instanceof Error ? err.message : "Failed to send request. Please try again.");
+      setStatus("error");
+    }
+  };
+
+  const reset = () => {
+    setStatus("idle");
+    setErrorMsg("");
+    setForm({ name: "", email: "", phone: "", service: "", pickup: "", dropoff: "", moveDate: "", message: "" });
   };
 
   return (
@@ -41,24 +60,20 @@ export default function QuoteForm() {
           <p className="section-subtitle">Free Estimate</p>
           <h2 className="section-title">Request a Quote</h2>
           <p className="text-gray-500">
-            Tell us about your move and we'll get back to you with a competitive
-            quote within 2 hours.
+            Tell us about your move and we'll get back to you with a competitive quote within 2 hours.
           </p>
         </div>
 
         <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-primary-100">
-          {submitted ? (
+          {status === "success" ? (
             <div className="flex flex-col items-center justify-center py-16 gap-4">
               <CheckCircle className="w-16 h-16 text-primary-500" />
               <h3 className="text-2xl font-bold text-navy">Quote Requested!</h3>
               <p className="text-gray-500 text-center max-w-sm">
-                Thanks {form.name}! We've received your request and will contact
-                you at {form.email} within 2 hours.
+                Thanks <strong>{form.name}</strong>! We've received your request and will contact
+                you at <strong>{form.email}</strong> within 2 hours.
               </p>
-              <button
-                onClick={() => setSubmitted(false)}
-                className="btn-secondary mt-4"
-              >
+              <button onClick={reset} className="btn-secondary mt-4">
                 Submit Another
               </button>
             </div>
@@ -73,9 +88,7 @@ export default function QuoteForm() {
                 { name: "dropoff", label: "Drop-off Location", type: "text", placeholder: "City, State" },
               ].map((f) => (
                 <div key={f.name}>
-                  <label className="block text-sm font-medium text-navy mb-1.5">
-                    {f.label}
-                  </label>
+                  <label className="block text-sm font-medium text-navy mb-1.5">{f.label}</label>
                   <input
                     type={f.type}
                     name={f.name}
@@ -89,9 +102,7 @@ export default function QuoteForm() {
               ))}
 
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-navy mb-1.5">
-                  Service Type
-                </label>
+                <label className="block text-sm font-medium text-navy mb-1.5">Service Type</label>
                 <select
                   name="service"
                   required
@@ -100,16 +111,12 @@ export default function QuoteForm() {
                   className="w-full px-4 py-2.5 border border-primary-200 rounded-lg text-sm focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 bg-white"
                 >
                   <option value="">Select a service...</option>
-                  {serviceOptions.map((o) => (
-                    <option key={o} value={o}>{o}</option>
-                  ))}
+                  {serviceOptions.map((o) => <option key={o} value={o}>{o}</option>)}
                 </select>
               </div>
 
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-navy mb-1.5">
-                  Additional Details
-                </label>
+                <label className="block text-sm font-medium text-navy mb-1.5">Additional Details</label>
                 <textarea
                   name="message"
                   rows={4}
@@ -120,9 +127,24 @@ export default function QuoteForm() {
                 />
               </div>
 
+              {status === "error" && (
+                <div className="md:col-span-2 flex items-center gap-2 bg-red-50 border border-red-200 text-red-600 rounded-lg px-4 py-3 text-sm">
+                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                  {errorMsg}
+                </div>
+              )}
+
               <div className="md:col-span-2">
-                <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2 py-3.5">
-                  <Send className="w-4 h-4" /> Send Quote Request
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="btn-primary w-full flex items-center justify-center gap-2 py-3.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === "loading" ? (
+                    <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</>
+                  ) : (
+                    <><Send className="w-4 h-4" /> Send Quote Request</>
+                  )}
                 </button>
               </div>
             </form>
