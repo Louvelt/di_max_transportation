@@ -21,14 +21,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#home" className="inline-block mb-4">
-              <Image
-                src="/logo.png"
-                alt="Di-Max Transportation"
-                width={140}
-                height={48}
-                className="h-10 w-auto object-contain brightness-0 invert"
-              />
+            <a href="#home" className="flex items-center gap-2 mb-4">
+              <div className="p-1 rounded-lg overflow-hidden">
+                <Image
+                  src="/logo.png"
+                  alt="Di-Max icon"
+                  width={28}
+                  height={28}
+                  className="w-7 h-7 object-contain brightness-0 invert"
+                />
+              </div>
+              <span className="font-bold text-lg text-white">
+                Di-Max <span className="text-primary-400">Transportation</span>
+              </span>
             </a>
             <p className="text-sm leading-relaxed text-primary-300 max-w-xs mb-6">
               Reliable, professional transportation and moving services. Your
