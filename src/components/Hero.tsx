@@ -22,7 +22,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6" style={{ fontFamily: '"Bebas Neue", sans-serif', letterSpacing: '0.03em' }}>
             Move Smarter,{" "}
             <span className="text-primary-400">Arrive Faster</span>
           </h1>
