@@ -78,9 +78,12 @@ export default function Footer() {
             © {new Date().getFullYear()} Di-Max Transportation. All rights reserved.
           </p>
           <div className="flex gap-6">
-            {["Privacy Policy", "Terms of Service"].map((l) => (
-              <a key={l} href="#" className="text-xs text-primary-400 hover:text-primary-300 transition-colors">
-                {l}
+            {[
+              { label: "Privacy Policy", href: "/privacy" },
+              { label: "Terms of Service", href: "/terms" },
+            ].map((l) => (
+              <a key={l.label} href={l.href} className="text-xs text-primary-400 hover:text-primary-300 transition-colors">
+                {l.label}
               </a>
             ))}
           </div>
