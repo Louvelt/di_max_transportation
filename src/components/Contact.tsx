@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Send, CheckCircle } from "lucide-react";
 
 const contactInfo = [
-  { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
+  { icon: Phone, label: "Phone", value: "+1 (774) 625-3852", href: "tel:+17746253852" },
   { icon: Mail, label: "Email", value: "info@dimaxtransportation.com", href: "mailto:info@dimaxtransportation.com" },
   { icon: MapPin, label: "Address", value: "123 Logistics Ave, Transport City, TC 00000", href: "#" },
 ];

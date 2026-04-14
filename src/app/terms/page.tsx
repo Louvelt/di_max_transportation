@@ -139,7 +139,7 @@ export default function TermsPage() {
                 <div className="space-y-1 text-sm text-navy font-medium">
                   <p>Di-Max Transportation</p>
                   <p>Massachusetts, USA</p>
-                  <p>Phone: <a href="tel:+15551234567" className="text-primary-600 hover:underline">+1 (555) 123-4567</a></p>
+                  <p>Phone: <a href="tel:+17746253852" className="text-primary-600 hover:underline">+1 (774) 625-3852</a></p>
                   <p>Email: <a href="mailto:info@dimaxtransportation.com" className="text-primary-600 hover:underline">info@dimaxtransportation.com</a></p>
                 </div>
               </div>

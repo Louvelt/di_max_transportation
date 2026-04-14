@@ -10,7 +10,7 @@ const footerLinks = {
 const socialLinks = [
   { Icon: Share2, label: "Share", href: "#" },
   { Icon: MessageCircle, label: "Chat", href: "#" },
-  { Icon: Phone, label: "Call", href: "tel:+15551234567" },
+  { Icon: Phone, label: "Call", href: "tel:+17746253852" },
   { Icon: Mail, label: "Email", href: "mailto:info@dimaxtransportation.com" },
 ];
 

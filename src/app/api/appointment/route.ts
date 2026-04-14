@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
             <p style="margin:8px 0;color:#0A1F44;"><strong>📞 Phone:</strong> ${phone}</p>
             ${notes ? `<p style="margin:8px 0;color:#0A1F44;"><strong>📝 Notes:</strong> ${notes}</p>` : ""}
           </div>
-          <p style="color:#475569;">Our team will reach out to confirm closer to your appointment date. If you need to reschedule, please contact us at <a href="mailto:info@dimaxtransportation.com" style="color:#127CE0;">info@dimaxtransportation.com</a> or call <strong>+1 (555) 123-4567</strong>.</p>
+          <p style="color:#475569;">Our team will reach out to confirm closer to your appointment date. If you need to reschedule, please contact us at <a href="mailto:info@dimaxtransportation.com" style="color:#127CE0;">info@dimaxtransportation.com</a> or call <strong>+1 (774) 625-3852</strong>.</p>
           <p style="color:#475569;margin-top:24px;">Thank you for choosing Di-Max Transportation!</p>
         </div>
       `,
