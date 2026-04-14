@@ -1,10 +1,10 @@
-import { ShieldCheck, Clock, Award, Users } from "lucide-react";
+import { ShieldCheck, Clock, Award, Users, ArrowRight } from "lucide-react";
 
 const badges = [
   { icon: ShieldCheck, label: "Fully Licensed & Insured" },
   { icon: Clock, label: "24/7 Customer Support" },
-  { icon: Award, label: "10+ Years Experience" },
-  { icon: Users, label: "Expert Moving Crew" },
+  { icon: Award, label: "20 Years Experience" },
+  { icon: Users, label: "Expert Transportation Crew" },
 ];
 
 export default function About() {
@@ -16,36 +16,34 @@ export default function About() {
           <div className="relative">
             <div className="bg-primary-500 rounded-3xl h-80 lg:h-96 flex items-center justify-center overflow-hidden">
               <div className="text-center text-white p-8">
-                <div className="text-8xl font-black opacity-20 mb-4">10+</div>
+                <div className="text-8xl font-black opacity-20 mb-4">20+</div>
                 <div className="text-2xl font-bold">Years of Excellence</div>
-                <div className="text-primary-200 mt-2">in Transportation & Logistics</div>
+                <div className="text-primary-200 mt-2">Local & International Transportation</div>
               </div>
             </div>
-            {/* Floating card */}
             <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 border border-primary-100">
               <div className="text-3xl font-extrabold text-primary-500">500+</div>
-              <div className="text-sm text-gray-500 mt-1">Successful Moves</div>
+              <div className="text-sm text-gray-500 mt-1">Satisfied Clients</div>
             </div>
           </div>
 
           {/* Content side */}
           <div>
             <p className="section-subtitle">Our Story</p>
-            <h2 className="section-title">Built on Trust, Driven by Excellence</h2>
+            <h2 className="section-title">Built on Trust, Driven by Excellence!</h2>
             <p className="text-gray-500 leading-relaxed mb-6">
-              Di-Max Transportation was founded with a simple mission: make
-              moving less stressful and more reliable. Over the past decade,
-              we've grown from a small local operation to a full-service
-              transportation company serving clients across the region.
+              Di-Max Transportation was founded with a simple mission: make transportation less
+              stressful and more reliable. With <strong className="text-navy">20 years of experience</strong>{" "}
+              doing transportation from foreign countries to international destinations, our team
+              provides punctual, clean, and professional transportation with transparent pricing.
             </p>
             <p className="text-gray-500 leading-relaxed mb-10">
-              Every move is personal to us. We treat your belongings like our
-              own — with care, precision, and respect. Our team of trained
-              professionals is committed to delivering an exceptional experience
-              from the first call to the final delivery.
+              Every move is personal to us. We treat your belongings like our own — with care,
+              precision, and respect. Our team of trained professionals is committed to delivering
+              an exceptional experience from the first call to the final delivery.
             </p>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 mb-8">
               {badges.map((b) => (
                 <div
                   key={b.label}
@@ -58,6 +56,10 @@ export default function About() {
                 </div>
               ))}
             </div>
+
+            <a href="/about" className="btn-primary inline-flex items-center gap-2">
+              Read Our Full Story <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>
