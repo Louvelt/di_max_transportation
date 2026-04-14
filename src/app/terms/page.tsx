@@ -60,7 +60,7 @@ const sections = [
     title: "7. Liability",
     items: [
       "We are not responsible for damage due to improper packaging",
-      "Liability for lost or damaged goods is limited to $100,000 unless additional insurance is purchased",
+      "Liability for lost or damaged goods is limited to $500,000 unless additional insurance is purchased",
       "Claims must be reported within 24 hours of delivery",
     ],
   },
