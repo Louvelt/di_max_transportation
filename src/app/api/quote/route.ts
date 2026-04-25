@@ -29,11 +29,11 @@ export async function POST(req: NextRequest) {
           <p style="color:#0A1F44;font-size:16px;">Hi <strong>${name}</strong>,</p>
           <p style="color:#475569;">We've received your quote request and will get back to you within 2 hours with a competitive estimate.</p>
           <div style="background:white;border-radius:8px;padding:20px;margin:20px 0;border-left:4px solid #127CE0;">
-            <p style="margin:8px 0;color:#0A1F44;"><strong>Service:</strong> ${service}</p>
-            <p style="margin:8px 0;color:#0A1F44;"><strong>Pickup:</strong> ${pickup}</p>
-            <p style="margin:8px 0;color:#0A1F44;"><strong>Drop-off:</strong> ${dropoff}</p>
-            <p style="margin:8px 0;color:#0A1F44;"><strong>Move Date:</strong> ${formattedDate}</p>
-            ${message ? `<p style="margin:8px 0;color:#0A1F44;"><strong>Details:</strong> ${message}</p>` : ""}
+            <p style="margin:8px 0;color:#0A1F44;"><strong>🚛 Service:</strong> ${service}</p>
+            <p style="margin:8px 0;color:#0A1F44;"><strong>📍 Pickup:</strong> ${pickup}</p>
+            <p style="margin:8px 0;color:#0A1F44;"><strong>📍 Drop-off:</strong> ${dropoff}</p>
+            <p style="margin:8px 0;color:#0A1F44;"><strong>📅 Move Date:</strong> ${formattedDate}</p>
+            ${message ? `<p style="margin:8px 0;color:#0A1F44;"><strong>📝 Details:</strong> ${message}</p>` : ""}
           </div>
           <p style="color:#475569;">Questions? Reach us at <a href="mailto:info@dimaxtransportation.com" style="color:#127CE0;">info@dimaxtransportation.com</a> or call <strong>+1 (774) 625-3852</strong>.</p>
           <p style="color:#475569;margin-top:24px;">Thank you for choosing Di-Max Transportation!</p>
