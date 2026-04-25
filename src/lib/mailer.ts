@@ -2,8 +2,8 @@ import nodemailer from "nodemailer";
 
 export function getTransporter() {
   return nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
+    host: process.env.SMTP_HOST || "smtp.hostinger.com",
+    port: Number(process.env.SMTP_PORT) || 587,
     secure: false,
     auth: {
       user: process.env.SMTP_USER,
