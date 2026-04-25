@@ -1,6 +1,5 @@
 const SITE_URL = "https://dimaxtransportation.com";
 const LOGO_URL = `${SITE_URL}/logo.png`;
-const BANNER_URL = `${SITE_URL}/banner_web.webp`;
 const PHONE = "+1 (774) 625-3852";
 const EMAIL = "info@dimaxtransportation.com";
 
@@ -17,26 +16,16 @@ export function emailTemplate(title: string, body: string): string {
 
           <!-- Logo header -->
           <tr>
-            <td style="background:#0A1F44;padding:20px 32px;text-align:center;">
+            <td style="background:#0A1F44;padding:24px 32px;text-align:center;">
               <img src="${LOGO_URL}" alt="Di-Max Transportation" height="48" style="height:48px;width:auto;display:inline-block;" />
             </td>
           </tr>
 
-          <!-- Banner -->
+          <!-- Title banner (CSS only, no image) -->
           <tr>
-            <td style="padding:0;position:relative;">
-              <img src="${BANNER_URL}" alt="Di-Max Transportation" width="600" style="width:100%;max-width:600px;display:block;height:180px;object-fit:cover;" />
-              <div style="position:absolute;inset:0;background:rgba(10,31,68,0.55);display:flex;align-items:center;justify-content:center;">
-              </div>
-              <table width="100%" cellpadding="0" cellspacing="0" style="position:absolute;top:0;left:0;height:100%;">
-                <tr>
-                  <td align="center" valign="middle">
-                    <div style="background:rgba(18,124,224,0.85);display:inline-block;padding:12px 28px;border-radius:8px;">
-                      <span style="color:white;font-size:22px;font-weight:bold;letter-spacing:1px;">${title}</span>
-                    </div>
-                  </td>
-                </tr>
-              </table>
+            <td style="background:linear-gradient(135deg,#127CE0 0%,#0A1F44 100%);padding:36px 32px;text-align:center;">
+              <h1 style="color:white;margin:0;font-size:26px;font-weight:bold;letter-spacing:0.5px;">${title}</h1>
+              <p style="color:#C2F8CB;margin:8px 0 0;font-size:14px;">Di-Max Transportation — Massachusetts, USA</p>
             </td>
           </tr>
 
@@ -49,18 +38,12 @@ export function emailTemplate(title: string, body: string): string {
 
           <!-- Contact bar -->
           <tr>
-            <td style="background:#127CE0;padding:20px 32px;">
-              <table width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td align="center">
-                    <span style="color:white;font-size:14px;font-weight:bold;">📞 ${PHONE}</span>
-                    &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a href="mailto:${EMAIL}" style="color:#C2F8CB;font-size:14px;text-decoration:none;">✉️ ${EMAIL}</a>
-                    &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <span style="color:white;font-size:14px;">🌐 Massachusetts, USA</span>
-                  </td>
-                </tr>
-              </table>
+            <td style="background:#127CE0;padding:20px 32px;text-align:center;">
+              <p style="margin:0;color:white;font-size:14px;">
+                📞 <strong>${PHONE}</strong>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="mailto:${EMAIL}" style="color:#C2F8CB;text-decoration:none;">✉️ ${EMAIL}</a>
+              </p>
             </td>
           </tr>
 
@@ -70,9 +53,9 @@ export function emailTemplate(title: string, body: string): string {
               <p style="color:#7dd3fc;font-size:12px;margin:0;">
                 © ${new Date().getFullYear()} Di-Max Transportation. All rights reserved.
                 &nbsp;|&nbsp;
-                <a href="${SITE_URL}/privacy" style="color:#7dd3fc;">Privacy Policy</a>
+                <a href="${SITE_URL}/privacy" style="color:#7dd3fc;text-decoration:none;">Privacy Policy</a>
                 &nbsp;|&nbsp;
-                <a href="${SITE_URL}/terms" style="color:#7dd3fc;">Terms of Service</a>
+                <a href="${SITE_URL}/terms" style="color:#7dd3fc;text-decoration:none;">Terms of Service</a>
               </p>
             </td>
           </tr>
